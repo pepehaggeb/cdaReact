@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './index.adicionarCodigo.css'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import axios from 'axios'
 
 function PopUpAdd(props) {
 
-    const [ name, setName ] = useState('')
-    const [ description, setDescription ] = useState('')
-    const [ multa, setMulta ] = useState('')
-    const [ tempo, setTempo ] = useState('')
-    const [ status, setStatus ] = useState('')
+    // const [ name, setName ] = useState('')
+    // const [ description, setDescription ] = useState('')
+    // const [ multa, setMulta ] = useState('')
+    // const [ tempo, setTempo ] = useState('')
+    // const [ status, setStatus ] = useState('')
 
     // const addInfosToDb = () => {
     //     axios.post("http://localhost:3001/codigo/adicionar", 

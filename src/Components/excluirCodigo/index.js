@@ -1,6 +1,5 @@
 import React from 'react'
 import './index.excluirCodigo.css'
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 function PopUpExcluir(props) { 
     return (props.trigger) ? (
