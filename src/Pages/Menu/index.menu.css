@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.sectionMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.bodyHeader {
+    background-color: rgb(61, 57, 56);
+    height: 120px;
+    width: 1200px;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+}
+
+.bodyMenu {
+    background-color: rgb(45, 42, 41);
+    width: 1200px;
+    height: 700px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logoCda1 {
+    float: left;
+    margin-left: -130px;
+    margin-top: -40px;
+    width: 400px;
+    height: 203px;
+    width: 35%;
+}
+
+.textIntroMenu {
+    float: right;
+    font-size: 35px;
+    width: 30%;
+    text-align: right;
+    margin-right: 35px;
+    margin-top: 25px;
+    color: rgb(247, 226, 163);
+    font-family: 'Roboto', sans-serif;
+}
+
+.textCodMenu {
+    float: left;
+    text-align: left;
+    width: 30%;
+    margin-left: 50px;
+    font-size: 25px;
+    color: rgb(235, 168, 71);
+    font-family: 'Roboto', sans-serif;
+    height: 1%;
+}
+
+.codBtn {
+    float: right;
+    margin-right: 50px;
+    margin-top: 25px;
+    color: white;
+    background-color: rgb(235, 168, 71);
+    border-width: 0px;
+    border-radius: 2px;
+    height: 35px;
+    width: 300px;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.codBtn:hover {
+    background-color: rgb(235, 179, 101);
+}
+
+.filterBody {
+    background-color: rgb(61, 57, 56);
+    width: 92%;
+    height: 12.5%;
+    align-self: center;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.buscarInput {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 30%;
+    height: 55px;
+    border-radius: 5px;
+    border-width: 0px;
+    font-size: 25px;
+    background-color: rgb(45, 42, 41);
+    color: rgb(235, 168, 71);
+    font-family: 'Roboto', sans-serif;
+}
+
+.buscarInput:focus {
+    outline: 0;
+}
+
+.filtrarInput {
+    margin-top: 15px;
+    height: 55px;
+    width: 30%;
+    border-radius: 5px;
+    border-width: 0px;
+    font-size: 25px;
+    background-color: rgb(45, 42, 41);
+    color: rgb(235, 168, 71);
+    font-family: 'Roboto', sans-serif;
+}
+
+.filtrarInput:focus {
+    outline: 0;
+}
+
+.ordenarInput {
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+    width: 30%;
+    height: 55px;
+    border-radius: 5px;
+    border-width: 0px;
+    font-size: 25px;
+    background-color: rgb(45, 42, 41);
+    color: rgb(235, 168, 71);
+    font-family: 'Roboto', sans-serif;
+}
+
+::placeholder {
+    color: rgb(235, 168, 71);
+}
+
+.ordenarInput:focus {
+    outline: 0;
+}
+
+.codigosBody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 92%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 50px;
+    align-self: center;
+}

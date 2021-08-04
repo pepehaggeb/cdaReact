@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.PopUpConfHTML {
+    width: 100%;
+    float: right;
+}
+
+.PopUpConfBody {
+    width: 28%;
+    height: 50px;
+    float: right;
+    border-bottom-right-radius: 60px;
+    background-color: rgb(117, 189, 117);
+    display: flex;
+    flex-direction: row;
+    border-top-left-radius: 50px;
+}
+
+.textConf {
+    margin-left: 10px;
+    font-size: 16px;
+    color: rgb(58, 129, 58);
+    font-family: 'Roboto', sans-serif;
+}
+
+.teste {
+    width: 12%;
+    background-color: rgb(58, 129, 58);
+    height: 50px;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 60px;
+}
+
+.iconColor {
+    color: white;
+}

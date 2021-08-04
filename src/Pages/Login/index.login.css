@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.sectionLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.bodyLogin {
+    background-color: rgb(45, 42, 41);
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+
+.bodyLogin1 {
+    width: 600px;
+    height: 600px;
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.logoCda {
+    margin-top: -40px;   
+}
+
+.text1 {
+    margin-top: -40px;
+    font-size: 28px;
+    color: rgb(235, 168, 71);
+    font-family: 'Roboto', sans-serif;
+}
+
+.text2 {
+    margin-top: -10px;
+    font-size: 25px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 35px;
+    width: 250px;
+    font-size: 13pt;
+    color: rgb(235, 168, 71);
+    background-color: rgb(59, 56, 54);
+    border-width: 0px;
+    border-radius: 2px;
+    border-bottom: 3px solid rgb(85, 81, 78);
+}
+
+.password {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 35px;
+    width: 250px;
+    font-size: 13pt;
+    color: rgb(235, 168, 71);
+    background-color: rgb(59, 56, 54);
+    border-width: 0px;
+    border-radius: 2px;
+    border-bottom: 3px solid rgb(85, 81, 78);
+}
+
+.user:focus {
+    outline: 0;
+    border-bottom: 3px solid rgb(235, 168, 71);
+    transition: 0.3s;
+}
+
+.password:focus {
+    outline: 0;
+    border-bottom: 3px solid rgb(235, 168, 71);
+    transition: 0.3s;
+}
+
+.button {
+    background-color: rgb(235, 168, 71);
+    color: #f3d08e;
+    border-width: 0px;
+    border-radius: 2px;
+    height: 45px;
+    width: 250px;
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.bodyLogin1 {
+    background-image: url('../../Images/Gta.png');
+}
