@@ -47,7 +47,7 @@ function Menu() {
     const [ stat1, setStat1 ] = useState('')
 
     useEffect(() => {
-        axios.get("http://https://nodecdaprova.herokuapp.com/codigo/receber").then((response) => {
+        axios.get("https://nodecdaprova.herokuapp.com/codigo/receber").then((response) => {
             console.log(response.data)
             setCodigos(response.data)
         })
@@ -61,7 +61,7 @@ function Menu() {
     }
 
     const adicionarCodigo = () => {
-        axios.post("http://https://nodecdaprova.herokuapp.com/codigo/adicionar", 
+        axios.post("https://nodecdaprova.herokuapp.com/codigo/adicionar", 
         {
             name: name1,
             description: description1,
@@ -80,7 +80,7 @@ function Menu() {
     }
 
     const updateCodigo = () => {
-        axios.put("http://https://nodecdaprova.herokuapp.com/codigo/atualizar", {
+        axios.put("https://nodecdaprova.herokuapp.com/codigo/atualizar", {
             id: id,
             name: name,
             description: description,
@@ -103,7 +103,7 @@ function Menu() {
     }
 
     const deleteCodigo = (id) => {
-        axios.delete(`http://https://nodecdaprova.herokuapp.com/codigo/remover/${id}`)
+        axios.delete(`https://nodecdaprova.herokuapp.com/codigo/remover/${id}`)
         console.log('Clicado')
         setButtonPopup2(false)
         setOpenAlert(true)
