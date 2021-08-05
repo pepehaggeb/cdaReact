@@ -47,7 +47,7 @@ function Menu() {
     const [ stat1, setStat1 ] = useState('')
 
     useEffect(() => {
-        axios.get("http://localhost:3001/codigo/receber").then((response) => {
+        axios.get("http://https://nodecdaprova.herokuapp.com/codigo/receber").then((response) => {
             console.log(response.data)
             setCodigos(response.data)
         })
@@ -61,7 +61,7 @@ function Menu() {
     }
 
     const adicionarCodigo = () => {
-        axios.post("http://localhost:3001/codigo/adicionar", 
+        axios.post("http://https://nodecdaprova.herokuapp.com/codigo/adicionar", 
         {
             name: name1,
             description: description1,
@@ -80,7 +80,7 @@ function Menu() {
     }
 
     const updateCodigo = () => {
-        axios.put("http://localhost:3001/codigo/atualizar", {
+        axios.put("http://https://nodecdaprova.herokuapp.com/codigo/atualizar", {
             id: id,
             name: name,
             description: description,
@@ -103,7 +103,7 @@ function Menu() {
     }
 
     const deleteCodigo = (id) => {
-        axios.delete(`http://localhost:3001/codigo/remover/${id}`)
+        axios.delete(`http://https://nodecdaprova.herokuapp.com/codigo/remover/${id}`)
         console.log('Clicado')
         setButtonPopup2(false)
         setOpenAlert(true)
@@ -179,7 +179,7 @@ function Menu() {
                         <input type='text' placeholder='Buscar...' className='buscarInput' onChange = {(event) => {setFilter(event.target.value)}}></input>
                         <input type='text' placeholder='Filtrar por...' className='filtrarInput'></input>
                         <select className='ordenarInput' placeholder='Ordenar por...' onChange = {(event) => {setFilter1(event.target.value)}}>
-                            <option value='default'>Ordenar por...</option>
+                            <option value='default' disabled selected>Ordenar por...</option>
                             <option value='Multa'>Valor Multa</option>
                             <option value='Prisao'>Tempo Prisão</option>
                         </select>

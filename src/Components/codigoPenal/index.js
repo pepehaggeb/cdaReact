@@ -20,7 +20,8 @@ function CodigoPenal(props) {
             setCheckStatus(false)
         }
     }, [])
-
+        
+    
     return (
         <>
             <div className = 'sectionCodigos'>
