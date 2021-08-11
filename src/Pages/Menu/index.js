@@ -25,10 +25,10 @@ function Menu() {
     
     useEffect(() => {
         AuthUser()
-        window.localStorage.removeItem('token')
+        //window.localStorage.removeItem('token')
     }, [])
 
-    const [ codigos, setCodigos ] = useState([])
+    const [ codigosOriginal, setCodigosOriginal ] = useState([])
     const [ id, setId ] = useState('')
     const [ nome, setNome ] = useState('')
     const [ descricao, setDescricao ] = useState('')
@@ -49,7 +49,7 @@ function Menu() {
     useEffect(() => {
         axios.get("https://nodecdaprova.herokuapp.com/codigo/receber").then((response) => {
             console.log(response.data)
-            setCodigos(response.data)
+            setCodigosOriginal(response.data)
         })
     }, [])
 
@@ -128,9 +128,50 @@ function Menu() {
     const [ openAlert, setOpenAlert ] = useState(false)
     const [ messageAlert, setMessageAlert ] = useState('')
 
+    const [ search, setSearch] = useState('')
     const [ filter, setFilter ] = useState('')
-    const [ filter1, setFilter1 ] = useState('')
-    console.log(filter1)
+    const [ order, setOrder ] = useState('')
+
+    
+    console.log(codigosOriginal)
+
+    let codigos = codigosOriginal
+    
+    if (search !== '') {
+        codigos = codigos.filter((val) => {
+            return val.name.toLowerCase().includes(search.toLowerCase())
+        }       
+        )
+    }else if ( filter !== '') {
+        if (filter === 'Multa') {
+            codigos = codigos.sort((a, b) => {
+                return a.multa - b.multa;
+            })
+        } else if (filter === 'Tempo') {
+            codigos = codigos.sort((a, b) => {
+                return a.tempo - b.tempo;
+            })
+        }
+    } else if (order !== '') {
+        codigos = codigos.filter((val) => {
+            if(order === 'Ativo') {
+                return val.status === 1
+            }
+            else if(order === 'Inativo') {
+                return val.status === 2
+            }
+        })     
+    }
+
+    // codigos.reduce((val) => {
+    //     function teste() {
+    //         return [].slice.call(arguments).sort(function(a,b) {
+    //             return b - a;
+    //         })
+    //     }
+    //     console.log(teste(val.multa))
+    // })
+
     
     return(
         <>
@@ -176,9 +217,13 @@ function Menu() {
                         
                     </div>
                     <div className = 'filterBody'>
-                        <input type='text' placeholder='Buscar...' className='buscarInput' onChange = {(event) => {setFilter(event.target.value)}}></input>
-                        <input type='text' placeholder='Filtrar por...' className='filtrarInput'></input>
-                        <select className='ordenarInput' placeholder='Ordenar por...' onChange = {(event) => {setFilter1(event.target.value)}}>
+                        <input type='text' placeholder='Buscar...' className='buscarInput' onChange = {(event) => {setSearch(event.target.value)}}></input>
+                        <select className='filtrarInput' placeholder='Filtrar por...' onChange = {(event) => {setOrder(event.target.value)}}>
+                            <option value='default' disabled selected>Filtrar por...</option>
+                            <option value='Ativo'>Ativos</option>
+                            <option value='Inativo'>Inativos</option>
+                        </select>
+                        <select className='ordenarInput' placeholder='Ordenar por...' onChange = {(event) => {setFilter(event.target.value)}}>
                             <option value='default' disabled selected>Ordenar por...</option>
                             <option value='Multa'>Valor Multa</option>
                             <option value='Prisao'>Tempo Prisão</option>
@@ -187,14 +232,7 @@ function Menu() {
                     </div>
                     <div className = 'codigosBody'>
                         {
-                            codigos.filter((val) => {
-                                if(filter === '') {
-                                    return val
-                                } else if (val.name.toLowerCase().includes(filter.toLowerCase())) {
-                                    return val
-                                }
-                            })
-                            .map((val) => {
+                            codigos.map((val) => {
                                 return(
                                     <CodigoPenal 
                                     name={val.name} 
@@ -214,17 +252,11 @@ function Menu() {
                         message={messageAlert}
                     />
                 </div>
-                {/* {
-                codigos.map((val) => {
-                    return(
-                            <CodigoPenal name={val.name} description={val.description} multa={val.multa} tempo={val.tempo}></CodigoPenal>
-                    )  
-                }) 
-                } */}
-                
             </section>
         </>
     )
 }
+
+// [].slice.call(val.multa).splice(0, Number.MAX_VALUE, codigosSortByMultaPrice)
 
 export default Menu;
