@@ -3,28 +3,6 @@ import './index.adicionarCodigo.css'
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 function PopUpAdd(props) {
-
-    // const [ name, setName ] = useState('')
-    // const [ description, setDescription ] = useState('')
-    // const [ multa, setMulta ] = useState('')
-    // const [ tempo, setTempo ] = useState('')
-    // const [ status, setStatus ] = useState('')
-
-    // const addInfosToDb = () => {
-    //     axios.post("http://localhost:3001/codigo/adicionar", 
-    //     {
-    //         name: name,
-    //         description: description,
-    //         multa: multa,
-    //         tempo: tempo,
-    //         status: status,
-    //     }).then((response) => {
-    //         console.log(response.data.message)
-    //         alert(response.data.message)
-    //     })
-    // }
-    
-
     return (props.trigger) ? (
         <>
             <div className = 'popup'>

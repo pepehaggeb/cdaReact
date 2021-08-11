@@ -25,7 +25,7 @@ function Menu() {
     
     useEffect(() => {
         AuthUser()
-        //window.localStorage.removeItem('token')
+        window.localStorage.removeItem('token')
     }, [])
 
     const [ codigosOriginal, setCodigosOriginal ] = useState([])
@@ -54,8 +54,6 @@ function Menu() {
     }, [])
 
     const saveDeleteCodigo = (id) => {
-        // axios.delete(`http://localhost:3001/codigo/remover/${id}`)
-        // console.log('Clicado')
         set_Id(id)
         setButtonPopup2(true)
     }
@@ -131,9 +129,7 @@ function Menu() {
     const [ search, setSearch] = useState('')
     const [ filter, setFilter ] = useState('')
     const [ order, setOrder ] = useState('')
-
     
-    console.log(codigosOriginal)
 
     let codigos = codigosOriginal
     
@@ -162,16 +158,6 @@ function Menu() {
             }
         })     
     }
-
-    // codigos.reduce((val) => {
-    //     function teste() {
-    //         return [].slice.call(arguments).sort(function(a,b) {
-    //             return b - a;
-    //         })
-    //     }
-    //     console.log(teste(val.multa))
-    // })
-
     
     return(
         <>
@@ -240,6 +226,7 @@ function Menu() {
                                     multa={val.multa} 
                                     tempo={val.tempo} 
                                     status={val.status}
+                                    created_at={val.created_at}
                                     onClick2 = {() => saveDeleteCodigo(val._id)} 
                                     onClick1 = {() => updateInfos(val._id, val.name, val.description, val.multa, val.tempo)}
                                     ></CodigoPenal>
@@ -256,7 +243,5 @@ function Menu() {
         </>
     )
 }
-
-// [].slice.call(val.multa).splice(0, Number.MAX_VALUE, codigosSortByMultaPrice)
 
 export default Menu;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './index.codigoPenal.css'
 import EditIcon from '@material-ui/icons/Edit';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import DateRangeIcon from '@material-ui/icons/DateRange';
 //import axios from 'axios';
 
 // function deleteCodigo(id) {
@@ -20,7 +21,8 @@ function CodigoPenal(props) {
             setCheckStatus(false)
         }
     }, [])
-        
+
+    
     
     return (
         <>
@@ -29,6 +31,7 @@ function CodigoPenal(props) {
                     <div className='nameCodigoDiv'>
                         <p className='nameCodigo'>{props.name}</p>
                         <div className = 'statusCodigo' style={checkStatus ? {'backgroundColor': 'green'} : {'backgroundColor' : 'red'}}>{checkStatus ? 'Ativo' : 'Inativo'}</div>
+                        <p className = 'dateCodigo'><DateRangeIcon fontSize = 'small' className = 'iconCalendar'/>{props.created_at}</p>
                     </div>
                     <div className='descriptionCodigoDiv'>
                         <p className='descriptionCodigo'>{props.description}</p>
