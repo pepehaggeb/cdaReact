@@ -147,7 +147,7 @@ function Menu() {
             codigos = codigos.sort((a, b) => {
                 return a.multa - b.multa;
             })
-        } else if (filter === 'Tempo') {
+        } else if (filter === 'Prisao') {
             codigos = codigos.sort((a, b) => {
                 return a.tempo - b.tempo;
             })
