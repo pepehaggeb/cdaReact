@@ -193,10 +193,10 @@ function Menu() {
     } else if (order !== '') {
         codigos = codigos.filter((val) => {
             if(order === 'Ativo') {
-                return val.status === 1
+                return val.status === true
             }
             else if(order === 'Inativo') {
-                return val.status === 0
+                return val.status === false
             }
         })     
     }
