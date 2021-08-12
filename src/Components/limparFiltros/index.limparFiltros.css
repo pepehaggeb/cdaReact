@@ -1,0 +1,30 @@
+.bodyLimparFiltros {
+    width: 100px;
+    position: absolute;
+    right: 750px;
+    margin-top: 25px;
+}
+
+.buttonLimparFiltros {
+    float: right;
+    color: white;
+    background-color: red;
+    border-width: 0px;
+    border-radius: 2px;
+    height: 35px;
+    width: 200px;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clearIconCss {
+    margin-right: 5px;
+}
+
+.buttonLimparFiltros:hover {
+    background-color: rgb(255, 70, 70);
+}

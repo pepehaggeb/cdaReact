@@ -7,6 +7,7 @@ import axios from 'axios'
 import PopUpUpdate from '../../Components/editarCodigo'
 import PopUpExcluir from '../../Components/excluirCodigo'
 import PopUpConf from '../../Components/mensagemConfirmacao'
+import LimparFiltros from '../../Components/limparFiltros'
 
 function Menu() {
 
@@ -25,8 +26,13 @@ function Menu() {
     
     useEffect(() => {
         AuthUser()
-        window.localStorage.removeItem('token')
+        setTimeout(() => {
+            window.localStorage.removeItem('token')
+        }, 180000);
     }, [])
+
+    //180000 document.getElementById("toReset").value = "default";
+
 
     const [ codigosOriginal, setCodigosOriginal ] = useState([])
     const [ id, setId ] = useState('')
@@ -123,6 +129,7 @@ function Menu() {
     const [ buttonPopup, setButtonPopup ] = useState(false);
     const [ buttonPopup1, setButtonPopup1 ] = useState(false);
     const [ buttonPopup2, setButtonPopup2 ] = useState(false);
+    const [ clearFiltersModal, setClearFiltersModal ] = useState(false);
     const [ openAlert, setOpenAlert ] = useState(false)
     const [ messageAlert, setMessageAlert ] = useState('')
 
@@ -130,6 +137,31 @@ function Menu() {
     const [ filter, setFilter ] = useState('')
     const [ order, setOrder ] = useState('')
     
+    function Open() {
+        if(search !== '' ||filter !== '' || order !== '') {
+            setClearFiltersModal(true)
+        }
+        else {
+            setClearFiltersModal(false)
+        }
+    }
+
+    // search !== '' || filter !== '' || filter === 'default' || order !== '' || order === 'default'
+
+    setTimeout(() => {
+        Open()
+        console.log('teste')
+    }, 500);
+
+    async function limparFiltrosF() {
+        document.getElementById("toReset1").value = "default";
+        setFilter("")
+        document.getElementById("toReset").value = "default";
+        setOrder("")
+        document.getElementById("toResetBuscar").value = "";
+        setSearch("")
+        await Open()
+    }
 
     let codigos = codigosOriginal
     
@@ -146,6 +178,14 @@ function Menu() {
         } else if (filter === 'Prisao') {
             codigos = codigos.sort((a, b) => {
                 return a.tempo - b.tempo;
+            })
+        } else if (filter === 'Multa1') {
+            codigos = codigos.sort((a, b) => {
+                return b.multa - a.multa;
+            })
+        } else if (filter === 'Prisao1') {
+            codigos = codigos.sort((a, b) => {
+                return b.tempo - a.tempo;
             })
         }
     } else if (order !== '') {
@@ -169,6 +209,10 @@ function Menu() {
                 <div className = 'bodyMenu'>
                     <div className = 'headerMenuBody'>
                         <p className = 'textCodMenu'>Listagem de códigos penais</p>
+                        <LimparFiltros 
+                        trigger={clearFiltersModal}
+                        limpar = {limparFiltrosF}
+                        />
                         <button className='codBtn' onClick = {() => setButtonPopup(true)} >+ Adicionar novo código</button>
                         <PopUpAdd 
                         trigger={buttonPopup} 
@@ -203,16 +247,19 @@ function Menu() {
                         
                     </div>
                     <div className = 'filterBody'>
-                        <input type='text' placeholder='Buscar...' className='buscarInput' onChange = {(event) => {setSearch(event.target.value)}}></input>
-                        <select className='filtrarInput' placeholder='Filtrar por...' onChange = {(event) => {setOrder(event.target.value)}}>
+                        <input type='text' placeholder='Buscar...' className='buscarInput' id = 'toResetBuscar' onChange = {(event) => {setSearch(event.target.value)}}></input>
+                        <select className='filtrarInput' id = 'toReset' placeholder='Filtrar por...' onChange = {(event) => {setOrder(event.target.value)}}>
                             <option value='default' disabled selected>Filtrar por...</option>
                             <option value='Ativo'>Ativos</option>
                             <option value='Inativo'>Inativos</option>
                         </select>
-                        <select className='ordenarInput' placeholder='Ordenar por...' onChange = {(event) => {setFilter(event.target.value)}}>
+                        <select className='ordenarInput' id = 'toReset1' placeholder='Ordenar por...' onChange = {(event) => {setFilter(event.target.value)}}>
                             <option value='default' disabled selected>Ordenar por...</option>
-                            <option value='Multa'>Valor Multa</option>
-                            <option value='Prisao'>Tempo Prisão</option>
+                            <option value='Multa'>Valor Multa (Menor - Maior)</option>
+                            <option value='Multa1'>Valor Multa (Maior - Menor)</option>
+                            <option value='Prisao'>Tempo Prisão (Maior - Menor)</option>
+                            <option value='Prisao1'>Tempo Prisão (Menor - Maior)</option>
+
                         </select>
                         {/* <input type='list' placeholder='Ordenar por...' className='ordenarInput'></input> */}
                     </div>
