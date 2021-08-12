@@ -164,6 +164,8 @@ function Menu() {
     }
 
     let codigos = codigosOriginal
+
+    console.log(codigos)
     
     if (search !== '') {
         codigos = codigos.filter((val) => {
@@ -194,7 +196,7 @@ function Menu() {
                 return val.status === 1
             }
             else if(order === 'Inativo') {
-                return val.status === 2
+                return val.status === 0
             }
         })     
     }
@@ -257,8 +259,8 @@ function Menu() {
                             <option value='default' disabled selected>Ordenar por...</option>
                             <option value='Multa'>Valor Multa (Menor - Maior)</option>
                             <option value='Multa1'>Valor Multa (Maior - Menor)</option>
-                            <option value='Prisao'>Tempo Prisão (Maior - Menor)</option>
-                            <option value='Prisao1'>Tempo Prisão (Menor - Maior)</option>
+                            <option value='Prisao'>Tempo Prisão (Menor - Maior)</option>
+                            <option value='Prisao1'>Tempo Prisão (Maior - Menor)</option>
 
                         </select>
                         {/* <input type='list' placeholder='Ordenar por...' className='ordenarInput'></input> */}
@@ -273,6 +275,8 @@ function Menu() {
                                     multa={val.multa} 
                                     tempo={val.tempo} 
                                     status={val.status}
+                                    style={val.status ? {'backgroundColor': 'green'} : {'backgroundColor' : 'red'}}
+                                    text={val.status ? 'Ativo' : 'Inativo'}
                                     created_at={val.created_at}
                                     onClick2 = {() => saveDeleteCodigo(val._id)} 
                                     onClick1 = {() => updateInfos(val._id, val.name, val.description, val.multa, val.tempo)}

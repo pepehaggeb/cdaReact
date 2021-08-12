@@ -1,36 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './index.codigoPenal.css'
 import EditIcon from '@material-ui/icons/Edit';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-//import axios from 'axios';
-
-// function deleteCodigo(id) {
-//     axios.delete(`http://localhost:3001/codigo/remover/${id}`)
-//     console.log('Clicado')
-// }
 
 function CodigoPenal(props) {
 
-    const [checkStatus, setCheckStatus ] = useState(false)
-
-    useEffect(() => {
-        if (props.status === 1) {
-            setCheckStatus(true)
-        } else if(props.status === 2) {
-            setCheckStatus(false)
-        }
-    }, [])
-
-    
-    
     return (
         <>
             <div className = 'sectionCodigos'>
                 <div className = 'topCodigo'>
                     <div className='nameCodigoDiv'>
                         <p className='nameCodigo'>{props.name}</p>
-                        <div className = 'statusCodigo' style={checkStatus ? {'backgroundColor': 'green'} : {'backgroundColor' : 'red'}}>{checkStatus ? 'Ativo' : 'Inativo'}</div>
+                        {/* <div className = 'statusCodigo' style={checkStatus ? {'backgroundColor': 'green'} : {'backgroundColor' : 'red'}}>{checkStatus ? 'Ativo' : 'Inativo'}</div> */}
+                        <div className = 'statusCodigo' style={props.style}>{props.text}</div>
                         <p className = 'dateCodigo'><DateRangeIcon fontSize = 'small' className = 'iconCalendar'/>{props.created_at}</p>
                     </div>
                     <div className='descriptionCodigoDiv'>
